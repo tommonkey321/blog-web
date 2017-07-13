@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>blog-app</artifactId>
+        <groupId>com.tommonkey</groupId>
+        <version>1.0</version>
+    </parent>
+    <artifactId>blog-web</artifactId>
+    <packaging>war</packaging>
+
+    <properties>
+        <esop-app.version>1.0</esop-app.version>
+        <tomcat.version>2.2</tomcat.version>
+        <webserver.port>8088</webserver.port>
+        <tomcat.uriEncoding>utf-8</tomcat.uriEncoding>
+    </properties>
+
+    <dependencies>
+        <!--esop api start -->
+        <dependency>
+            <groupId>com.tommonkey</groupId>
+            <artifactId>blog-utils</artifactId>
+            <version>${esop-app.version}</version>
+        </dependency>
+
+        <!--esop api end-->
+        <!--spring start-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!--spring end-->
+
+    </dependencies>
+
+    <build>
+        <outputDirectory>src/main/webapp/WEB-INF/classes/</outputDirectory>
+        <plugins>
+            <!-- tomcat6插件 -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat6-maven-plugin</artifactId>
+                <version>${tomcat.version}</version>
+                <configuration>
+                    <port>${webserver.port}</port>
+                    <path>/</path>
+                    <uriEncoding>${tomcat.uriEncoding}</uriEncoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

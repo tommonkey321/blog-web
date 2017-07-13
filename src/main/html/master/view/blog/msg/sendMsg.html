@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>发送消息</title>
+    <script type="text/javascript" src="/js/header.js"></script>
+
+</head>
+<body onkeydown="keyLogin()">
+<div class="row">
+    <div class="box-inside">
+
+        <div class="box-content clearfix">
+            <form class="aiui-form"  id="msgForm" >
+                <div class="row">
+
+                    <fieldset class="pui-fieldset-border-dashed">
+                        <legend>消息主体</legend>
+                    <div class="col-md-12">
+                        <span class="col-md-12">
+                            <input id="msgTitle" name="msgTitle" class="k-textbox" value="" style="width:100%;"  validationType="notempty" validationMessage="标题不能为空"></input>
+                        </span>
+                    </div>
+
+                    <div class="col-md-12">
+                        <span class="col-md-12">
+                            <textarea id="msgContent" name="msgContent" class="k-textbox" value="" style="width:100%;height:300px;"  validationType="notempty" validationMessage="内容不能为空"></textarea>
+                        </span>
+                    </div>
+                        <div class="col-md-12">
+
+                            <span class="col-md-12">
+                            消息显示时间：<pui-switch id="msgShowTime" name="msgShowTime" value="5,15,30,60,180,600,3600" switched="180" text="5,15,30,60,180,600,3600" class="pui-round" /> &nbsp;秒
+                        </span>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="pui-fieldset-border-dashed">
+                        <legend>消息显示属性</legend>
+                        <div class="col-md-12">
+                        <span class="col-md-3">
+                            <input id="receiveSessionId" type="text" hidden="hidden">
+                            <pui-switch id="msgType" name="msgType" value="1,2" switched="2" text="系统消息,普通消息" class="pui-round" />
+                        </span>
+                            <span class="col-md-4">
+                            <pui-switch id="sendType" name="sendType" value="1,2,3" switched="3" text="所有人,在线用户,单个用户" class="pui-round" />
+                        </span>
+                            <span class="col-md-2">
+                            <pui-switch id="showPosition" name="showPosition" value="center,down" switched="down" text="中部,右下" class="pui-round" />
+                        </span>
+                        <span class="col-md-3">
+                            <pui-switch id="msgShowType" name="msgShowType" value="info,warn,error,question" switched="info" text="通知,警告,错误,问题" class="pui-round" />
+                        </span>
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-md-5">&nbsp;</div>
+                <div class="col-md-2">
+                    <button class="pui-btn pui-btn-primary pui-btn-block pui-round" id="sendButton">发送</button>
+                </div>
+                <div class="col-md-5">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/js/blog/msg/sendMsg.js?v=4"></script>
+</html>
