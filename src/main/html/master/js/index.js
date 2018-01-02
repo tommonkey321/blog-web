@@ -1,58 +1,6 @@
-var connid;
+
 $(function (){
-    function init(){
-        var kbDom = document.getElementById('kb');
-        JS.Engine.on({
-            msg : function(kb){//侦听一个channel
-                if(kb==connid+"_"+"/SYS_FUU_EXIT/"){
-                    comm.dialog.notification({
-                        content:"被强制退出，5秒后窗口关闭",
-                        maskClickClosed:true,
-                        type:comm.dialog.type.error,
-                        title:'强制退出提醒'
-                    });
-                    setTimeout(function () {
-                        window.open("about:blank","_self").close();
-                        window.close();
-                    },5000);
-                }else{
-                    var obj = JSON.parse(kb);
-                    var msgType= obj.msgType == 1?"[系统消息]":"[普通消息]";
-                    comm.dialog.sysNotice({
-                        type:obj.msgShowType,
-                        position:obj.showPosition,
-                        content:decodeURIComponent(obj.msgContent),
-                        title:obj.msgTitle,
-                        msgType:msgType,
-                        timeout:1000*obj.msgShowTime
-                    });
 
-
-
-                    // var template = kendo.template($("#showMsgPortlet").html());
-                    // var portlet = $(template({
-                    //     data:obj,
-                    //     msgType:obj.msgType,
-                    //     msgTitle:obj.msgTitle,
-                    //     msgContent:obj.msgContent,
-                    //     msgShowType:obj.msgShowType
-                    // }));
-                    // $("#showMsgDiv").html(portlet);
-                }
-            }
-        });
-        JS.Engine.start('conn');
-        JS.Engine.on(
-            'start',function(cId,channelList,engine){
-                connid=cId;
-                comm.dialog.notice({
-                    type:comm.dialog.type.success,
-                    // position:"center",
-                    content:"连接成功!！"
-                });
-                 // alert('连接已建立，连接ID为：' + cId);
-            });
-    }
 
     //首页数据初始化
     var options = {
@@ -65,7 +13,7 @@ $(function (){
                 if(data.sessionId == null){
                     $("#loginInfo").html("<a href='login.html'>登陆我的博客</a>");
                 }else{//创建链接
-                    init();
+                    // init();
                 }
                 $("#titleName").html(data.nikeName);
                 $("#nikeName").html(data.nikeName);
@@ -158,7 +106,7 @@ $(function (){
             });            
         }
         
-        if (top > 180) {
+        if (top > 180) {0
             goToTop.fadeIn();
         } else {
             goToTop.fadeOut();

@@ -44,14 +44,7 @@ function sendMsg(data){
         url:"/view/blog/msg/sendMsg.html?receiveSessionId="+data.sessionId,
         width:260,
         height:650,
-        isSec:true//,
-        // callback:function () {
-        //     comm.dialog.notice({
-        //         type:comm.dialog.type.success,
-        //         position:"center",
-        //         content:"增加成功！"
-        //     });
-        // }
+        isSec:true
     });
 }
 
@@ -64,7 +57,6 @@ function sendMsg(data){
         $("#inLineGrid").datagrid().load();
     });
 
-    window.setInterval(reflsh, 5000);
 
     function reflsh(){
         $("#inLineGrid").datagrid().load();
